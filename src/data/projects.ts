@@ -292,7 +292,7 @@ const projectEntries: Project[] = [
     title: 'Sunset and Firefly',
     year: 2025,
     category: 'Strategy & Building · Game Jam',
-    categories: ['Game Development', 'Graphics & Pathfinding'],
+    categories: ['Game Development'],
     summary: 'A Unity strategy game where players gather resources, build structures, and upgrade their ship.',
     overview: 'Sunset and Firefly is a collaborative Unity game made for the 2025 GMTK Game Jam. Its systems include grid-based construction, resource management, ship upgrades, enemies, and map generation.',
     stack: ['Unity', 'C#', 'Gameplay Systems'],
