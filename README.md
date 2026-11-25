@@ -1,10 +1,19 @@
-# Snow Cai Portfolio
+# Snow Cai · Software Engineering & Game Development
 
-A static portfolio built with React, TypeScript, Vite, and Tailwind CSS. The production build emits an HTML entry for each project so shared project URLs work directly on GitHub Pages.
+I’m Xuerou “Snow” Cai, a Computer Science & Engineering master’s student at the University of Nevada, Reno. This portfolio covers my work in Unity gameplay systems, AI integration, and simulation. Project pages document my contributions, technical decisions, and outcomes, with gameplay screenshots and demos where available.
+
+[Live portfolio](https://snow-cai.github.io/) · [All projects](https://snow-cai.github.io/projects/) · [itch.io](https://mioolm.itch.io/) · [LinkedIn](https://www.linkedin.com/in/xuerou-cai-71b282337/)
+
+## Featured projects
+
+- [Bound Spirit](https://snow-cai.github.io/projects/bound-spirit/) — a Unity puzzle RPG capstone.
+- [VibeAI](https://snow-cai.github.io/projects/vibeai/) — a Unity app that matches Spotify tracks to facial expressions. It won first place in its hackathon’s AI category.
+- [Are You a Human?](https://snow-cai.github.io/projects/the-8-puzzle/) — a CAPTCHA-themed sliding puzzle with hints powered by bidirectional breadth-first search.
+- [Group Movement & Pathfinding Simulation](https://snow-cai.github.io/projects/group-movement-pathfinding/) — a simulation of how groups navigate around obstacles.
 
 ## Run locally
 
-Use Node.js 22.12 or later and npm. The deployment workflow uses Node.js 24.
+The site uses React, TypeScript, Vite, and Tailwind CSS. Use Node.js 22.12 or later and npm. The deployment workflow uses Node.js 24.
 
 ```sh
 npm ci
@@ -17,7 +26,12 @@ Open the local URL printed by Vite. Run `npm run build` to type-check and build 
 
 Edit [src/data/projects.ts](src/data/projects.ts). Add an entry to `projects` using a unique lowercase, hyphenated `slug`. The catalog card, detail page, and production HTML entry all come from this data. Set `featured: true` to also show it on the homepage. The first featured project gets the wide card.
 
-Set `title`, `year`, `category`, `summary`, `overview`, `stack`, and `implementation` for each project. Use the year the project was completed. The catalog groups projects by year, newest first, and entries in the same year follow their order in the data file. Use the category label for the project type and context, such as `Puzzle RPG · Capstone`. Keep the card summary to one sentence. Set `categories` to one or more filters defined in the same file. Fill in `contributions`, `challenges`, and `outcomes` as details are confirmed. Set `repository` to the public source URL. For a playable game, set `demo` to an `href` and choose `kind: 'browser'` or `kind: 'download'`.
+Set `title`, `year`, `summary`, `overview`, `stack`, and `implementation` for each project. The catalog groups projects by completion year, newest first. Projects from the same year follow their order in the data file.
+
+- `category` is the label displayed on the project, such as `Puzzle RPG · Capstone`.
+- `categories` controls which catalog filters include the project. The current filters are Game Development, Graphics & Pathfinding, and AI & Software. Sunset and Firefly is filed under Game Development.
+- `contributions`, `challenges`, and `outcomes` describe the work and what came out of it.
+- `repository` is optional and should point to public source code. For a game demo, set `demo.href` and choose `demo.kind` of `browser` or `download`.
 
 ## Screenshots and videos
 
@@ -30,14 +44,15 @@ Keep original screenshots in `assets/projects/<slug>/`. Save web-ready media in 
 
 Published game screenshots come from their [itch.io listings](https://mioolm.itch.io/). Bound Spirit’s graveyard cover uses a frame from the [official project video](https://www.youtube.com/watch?v=aNfl_b2h7eg), and the interface captures come from the [project repository](https://github.com/Snow-Cai/BoundSpirit/tree/main/Assets/Sprites/UISprites/HelpBook). The itch.io profile icon comes from the [itch.io press kit](https://itch.io/press-kit).
 
-## Update the résumé and contact information
+## Update profile and contact information
 
-Edit [src/data/profile.ts](src/data/profile.ts) to update the skills, experience, and education. Set `email`, `github`, `linkedin`, and `itch` to the contact details you approve for public use. Add a public recruiting PDF to `public/media/resume.pdf` and set `resume: 'media/resume.pdf'` in the same file. Review all files under `public/` before publishing because GitHub Pages serves them directly.
+Edit [src/data/profile.ts](src/data/profile.ts) to update the bio, skills, experience, education, and public contact links.
 
 ## Deploy to GitHub Pages
 
-1. Review the portfolio for approved public content, then push it to your GitHub repository.
-2. In **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source.
-3. In **Actions → Deploy portfolio to GitHub Pages**, choose **Run workflow**. The workflow runs only when manually dispatched.
+1. Run `npm run build` to type-check the code and generate the site, including HTML for direct project links.
+2. Commit your website changes and push them to `main`.
+3. Open [Deploy portfolio to GitHub Pages](https://github.com/Snow-Cai/snow-cai.github.io/actions/workflows/pages.yml) and select **Run workflow** on `main`. This repository uses GitHub Actions for publishing. The workflow runs when started manually.
+4. After the workflow succeeds, open the [live portfolio](https://snow-cai.github.io/) to check your changes.
 
 The workflow sets the Vite base from the GitHub Pages configuration. To test a repository subpath locally on PowerShell, set `$env:PORTFOLIO_BASE = '/your-repository/'` before both `npm run build` and `npm run preview`, then open the resulting subpath. Clear it with `Remove-Item Env:PORTFOLIO_BASE` when finished. See the [Vite static deployment guide](https://vite.dev/guide/static-deploy#github-pages).
